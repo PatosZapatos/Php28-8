@@ -5,7 +5,7 @@
 
 <?php
 
-include '../php-page/menu.php';
+include '../php-page/form-bajas.php';
 
 
 $id = $_POST['id'];
@@ -44,7 +44,6 @@ if ($resultado) {
 </head>
 
 <body>
-	<a href="../php-page/form-bajas.php">Volver</a>
 
 </body>
 

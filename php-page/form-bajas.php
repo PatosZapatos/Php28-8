@@ -7,24 +7,33 @@ include 'menu.php';
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Formulario de Bajas</title>
+	<title>Eliminar Registro</title>
 	<link rel="stylesheet" href="../css/formAltas.css">
 </head>
 
 <body>
 
 	<div class="container-fluid">
-		<h3 class="altaTitulo h3 mb-5 fw-normal mt-5" style="text-align: center;">FORMULARIO DE BAJA</h3>
-		<form class="altaInput" action="../php-processing/bajas.php" method="POST">
-			<div class="grupoInputs">
-				<label for="id">ID:</label>
-				<input type="text" name="id" required><br>
-			</div>
+		<h3 class="altaTitulo h3 mb-5 fw-normal mt-5">Eliminar Registro</h3>
+		<form action="../php-processing/bajas.php" method="POST" enctype="multipart/form-data">
 
-			<button type="submit" class="btn btn-primary">Eliminar</button><br>
+			<div class="form-container">
+				<div class="row g-3 justify-content-center">
+					<div class="form-group mt-1 mb-1 col-md-2">
+						<label for="apellido">ID:</label>
+						<input type="number" name="id" class="form-control form-control-sm" required><br>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					<div class="form-group m1-1 mb-1 col-md-1">
+						<button type="submit" class="btn btn-danger">Eliminar</button><br>
+					</div>
+				</div>
+
+			</div>
 		</form>
 	</div>
 
-</body>
 
-</html>
+</body>

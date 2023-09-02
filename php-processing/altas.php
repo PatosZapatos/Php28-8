@@ -9,7 +9,7 @@
 
 <?php
 
-include '../php-page/menu.php';
+include '../php-page/form-altas.php';
 
 $ape = $_POST['apellido'];
 $nom = $_POST['nombre'];
