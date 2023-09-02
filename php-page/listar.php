@@ -7,7 +7,7 @@ include 'menu.php';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Formulario de Altas</title>
-	<link rel="stylesheet" href="css/respuestas.css">
+	<link rel="stylesheet" href="../css/respuestas.css">
 </head>
 
 <body>

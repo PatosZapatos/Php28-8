@@ -9,21 +9,26 @@ include 'menu.php';
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Formulario de Modificacion</title>
-	<link rel="stylesheet" href="css/formAltas.css">
+	<link rel="stylesheet" href="../css/formAltas.css">
 </head>
 
 <body>
 
 	<div class="container">
 		<h3 class="altaTitulo">FORMULARIO DE MODIFICACION</h3>
-		<form class="altaInput" action="modificacion.php" method="POST">
+		<form class="altaInput" action="../php-processing/modificacion.php" method="POST">
 			<div class="grupoInputs">
-				<label for="apellido">Campo Clave Apellido:</label>
-				<input type="text" name="apellido"><br>
+				<label for="apellido">ID del Registro a Modificar:</label>
+				<input type="number" name="id"><br>
 			</div>
 
 			<br><br>
 			Campos a modificar:<br>
+
+			<div class="grupoInputs">
+				<label for="apellido">Apellido:</label>
+				<input type="text" name="apellido"><br>
+			</div>
 
 			<div class="grupoInputs">
 				<label for="nombre">Nombre:</label>
@@ -32,8 +37,9 @@ include 'menu.php';
 
 			<div class="grupoInputs">
 				<label for="edad">Edad:</label>
-				<input type="text" name="edad"><br>
+				<input type="number" name="edad"><br>
 			</div>
+			
 
 			<div class="btn-submit">
 				<input type="submit" value="Modificar"><br>
