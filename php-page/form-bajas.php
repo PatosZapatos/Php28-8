@@ -20,7 +20,7 @@ include 'menu.php';
 			<div class="form-container">
 				<div class="row g-3 justify-content-center">
 					<div class="form-group mt-1 mb-1 col-md-2">
-						<label for="apellido">ID:</label>
+						<label for="apellido">ID de Registro:</label>
 						<input type="number" name="id" class="form-control form-control-sm" required><br>
 					</div>
 				</div>

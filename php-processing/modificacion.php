@@ -55,19 +55,34 @@ if (empty($nom) && empty($ed) && empty($ape)) {
 		';
 
 } else {
-	echo $cadena;
 
 	if ($Conexion) {
-		echo "La conexion fue exitosa " . "<br>";
+		echo "<script>La conexion fue exitosa " . "<br></script>";
 
 	} else {
-		echo "La conexion ha fallado " . "<br>";
+		echo '
+		<div class="row g-1 justify-content-center">
+			<div class="alert alert-danger alert-dismissible fade show col-md-4" role="alert">
+				Hubo un error con la conexión.
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+				</button>
+  			</div>
+		</div>
+		';
 	}
 
 	$resultado = mysqli_query($Conexion, $cadena);
 
 	if ($resultado) {
-		echo "Se ha modificado un registro" . "<br>";
+		echo '
+		<div class="row g-1 justify-content-center">
+			<div class="alert alert-success alert-dismissible fade show col-md-4" role="alert">
+				Modificacion Completada
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+				</button>
+  			</div>
+		</div>
+		';
 
 	} else {
 		echo "NO se ha modificado un registro" . "<br>";

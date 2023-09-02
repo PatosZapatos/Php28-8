@@ -15,7 +15,7 @@ include 'menu.php';
 
 	<table class="table table-hover table-sm table-bordered" style="margin:auto; width:80%;">
 		<caption class="ttitulo">Lista de usuarios</caption>
-		<thead class="center-text thead-dark" style="background-color: black;">
+		<thead class="center-text">
 			<tr>
 				<th>ID</th>
 				<th>Apellido</th>
