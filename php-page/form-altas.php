@@ -15,30 +15,31 @@ include 'menu.php';
 <body>
 
 	<div class="container-fluid">
-		<h3 class="altaTitulo">FORMULARIO DE ALTA</h3>
-		<form class="altaInput" action="../php-processing/altas.php" method="POST" enctype="multipart/form-data">
-			<div class="grupoInputs">
+		<h3 class="altaTitulo h3 mb-5 fw-normal mt-5">FORMULARIO DE ALTA</h3>
+		<form action="../php-processing/altas.php" method="POST" enctype="multipart/form-data">
+		
+			<div class="form-group mt-1 mb-1 col-md-2">
 				<label for="apellido">Apellido:</label>
-				<input type="text" name="apellido"><br>
+				<input type="text" name="apellido" class="form-control form-control-sm" required><br>
 			</div>
 
-			<div class="grupoInputs">
+			<div class="form-group mt-1 mb-1 col-md-2">
 				<label for="nombre">Nombre:</label>
-				<input type="text" name="nombre"><br>
+				<input type="text" name="nombre" class="form-control form-control-sm" required><br>
 			</div>
 
-			<div class="grupoInputs">
+			<div class="form-group mt-1 mb-1 col-md-2">
 				<label for="edad">Edad:</label>
-				<input type="number" name="edad"><br>
+				<input type="number" name="edad" class="form-control form-control-sm" required><br>
 			</div>
 
-			<div class="grupoInputs">
-				<label for="foto">Archivo</label>
-				<input type="file" name="foto"><br>
+			<div class="form-group">
+				<label for="foto">Archivo</label> <br>
+				<input type="file" name="foto" class="form-control-file" required><br>
 			</div>
-
-			<div class="btn-submit">
-				<input type="submit" value="Grabar"><br>
+			
+			<div class="form-group mt-4">
+				<button type="submit" class="btn btn-primary">Enviar</button><br>
 			</div>
 		</form>
 	</div>

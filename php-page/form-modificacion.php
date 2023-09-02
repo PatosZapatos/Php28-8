@@ -14,8 +14,8 @@ include 'menu.php';
 
 <body>
 
-	<div class="container">
-		<h3 class="altaTitulo">FORMULARIO DE MODIFICACION</h3>
+	<div class="container-fluid">
+		<h3 class="altaTitulo h3 mb-5 fw-normal mt-5">FORMULARIO DE MODIFICACION</h3>
 		<form class="altaInput" action="../php-processing/modificacion.php" method="POST">
 			<div class="grupoInputs">
 				<label for="apellido">ID del Registro a Modificar:</label>
@@ -27,23 +27,21 @@ include 'menu.php';
 
 			<div class="grupoInputs">
 				<label for="apellido">Apellido:</label>
-				<input type="text" name="apellido"><br>
+				<input type="text" name="apellido required"><br>
 			</div>
 
 			<div class="grupoInputs">
 				<label for="nombre">Nombre:</label>
-				<input type="text" name="nombre"><br>
+				<input type="text" name="nombre" required><br>
 			</div>
 
 			<div class="grupoInputs">
 				<label for="edad">Edad:</label>
-				<input type="number" name="edad"><br>
+				<input type="number" name="edad" required><br>
 			</div>
-			
 
-			<div class="btn-submit">
-				<input type="submit" value="Modificar"><br>
-			</div>
+
+			<button type="submit" class="btn btn-primary">Enviar</button><br>
 		</form>
 	</div>
 

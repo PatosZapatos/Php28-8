@@ -14,16 +14,14 @@ include 'menu.php';
 <body>
 
 	<div class="container-fluid">
-		<h3 class="altaTitulo" style="text-align: center;">FORMULARIO DE BAJA</h3>
+		<h3 class="altaTitulo h3 mb-5 fw-normal mt-5" style="text-align: center;">FORMULARIO DE BAJA</h3>
 		<form class="altaInput" action="../php-processing/bajas.php" method="POST">
 			<div class="grupoInputs">
 				<label for="id">ID:</label>
-				<input type="text" name="id"><br>
+				<input type="text" name="id" required><br>
 			</div>
 
-			<div class="btn-submit">
-				<input type="submit" value="Eliminar"><br>
-			</div>
+			<button type="submit" class="btn btn-primary">Eliminar</button><br>
 		</form>
 	</div>
 
