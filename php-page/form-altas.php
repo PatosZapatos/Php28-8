@@ -10,6 +10,7 @@ include 'menu.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Añadir Registro</title>
 	<link rel="stylesheet" href="../css/formAltas.css">
+	<script src="../js/bootstrap.js"></script>
 </head>
 
 <body style="background-color: aliceblue;">
@@ -34,7 +35,7 @@ include 'menu.php';
 				<div class="row justify-content-center">
 					<div class="form-group mt-1 mb-1 col-md-1">
 						<label for="edad">Edad:</label>
-						<input type="number" name="edad" class="form-control form-control-sm" required><br>
+						<input type="number" name="edad" max="110" class="form-control form-control-sm" required><br>
 					</div>
 
 					<div class="form-group col-md-3">

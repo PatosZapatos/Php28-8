@@ -17,10 +17,6 @@ $ed = $_POST['edad'];
 $foto = $_FILES["foto"]["tmp_name"];
 $fotoTamanio = $_FILES["foto"]["size"];
 
-// salida de informacion
-
-echo "<h3>" . $ape . "</h3>" . "<h3>" . $nom . "</h3>" . "<h3>" . $ed . "</h3>";
-
 if ($foto != "none") {
 	$fp = fopen($foto, "rb");
 	$contenido = fread($fp, $fotoTamanio);
@@ -35,7 +31,29 @@ if ($foto != "none") {
 	$resultado = mysqli_query($Conexion, $cadena);
 
 	if ($resultado) {
-		print "se ha insertado un registro" . "<br>";
+		echo '
+		<div class="row g-1 justify-content-center">
+			<div class="alert alert-success alert-dismissible fade show col-md-4" role="alert">
+				<h3>Modificacion Completada</h3>'
+				.
+				'<p> Apellido: ' 
+				. 
+				$ape 
+				. 
+				'</p> <p> Nombre: '
+				. 
+				$nom
+				. 
+				'</p> <p> Edad: '
+				. 
+				$ed
+				. 
+				'</p>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+				</button>
+  			</div>
+		</div>
+		';
 
 	} else {
 		print "NO se ha generado un registro" . "<br>";

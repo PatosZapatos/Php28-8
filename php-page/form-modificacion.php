@@ -43,7 +43,15 @@ include 'menu.php';
 
 						<div class="form-group mt-1 mb-1 col-md-1">
 							<label for="edad">Edad:</label>
-							<input type="number" name="edad" class="form-control form-control-sm"><br>
+							<input type="number" name="edad" max="110" class="form-control form-control-sm"><br>
+						</div>
+
+					</div>
+
+					<div class="row g-3 justify-content-center">
+						<div class="form-group col-md-3">
+							<label for="foto">Foto</label> <br>
+							<input type="file" name="foto" class="form-control form-control-sm"><br>
 						</div>
 
 					</div>

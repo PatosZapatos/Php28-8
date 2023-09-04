@@ -1,6 +1,6 @@
 <html lang="es">
 
-</html>
+</html> 
 
 
 <?php
@@ -12,28 +12,41 @@ $id = $_POST['id'];
 $ape = $_POST['apellido'];
 $nom = $_POST['nombre'];
 $ed = $_POST['edad'];
+$foto = $_FILES["foto"]["tmp_name"];
+$fotoTamanio = $_FILES["foto"]["size"];
 
 $set = "SET ";
 
-if (!empty($nom)) {
+if ($nom) {
 	$set .= "nombre = '$nom'";
 }
 
-if (!empty($ed)) {
-	if (empty($nom)) {
-		$set .= "edad = '$ed'";
-	} else {
+if ($ed) {
+	if ($nom) {
 		$set .= ", edad = '$ed'";
+	} else {
+		$set .= "edad = '$ed'";
 	}
 }
 
-if (!empty($ape)) {
-	if (empty($nom)) {
-		if (empty($ed)) {
-			$set .= "apellido = '$ape'";
-		}
-	} else {
+if ($ape) {
+	if ($nom || $ed) {
 		$set .= ", apellido = '$ape'";
+	} else {
+		$set .= "apellido = '$ape'";
+	}
+}
+
+if ($foto) {
+	$fp = fopen($foto, "rb");
+	$picture = fread($fp, $fotoTamanio);
+	$picture = addslashes($picture);
+	fclose($fp);
+
+	if ($ape || $nom || $ed) {
+		$set .= ", foto = '$picture'";
+	} else {
+		$set .= "foto = '$picture'";
 	}
 }
 
@@ -42,7 +55,7 @@ $Conexion = mysqli_connect("localhost", "root", "", $base);
 
 $cadena = "UPDATE persona $set WHERE id = '$id'";
 
-if (empty($nom) && empty($ed) && empty($ape)) {
+if (empty($nom) && empty($ed) && empty($ape) && empty($foto)) {
 
 	echo '
 	<div class="row g-1 justify-content-center">
@@ -53,12 +66,10 @@ if (empty($nom) && empty($ed) && empty($ape)) {
   		</div>
 	</div>
 		';
-
 } else {
 
 	if ($Conexion) {
 		echo "<script>La conexion fue exitosa " . "<br></script>";
-
 	} else {
 		echo '
 		<div class="row g-1 justify-content-center">
@@ -83,7 +94,6 @@ if (empty($nom) && empty($ed) && empty($ape)) {
   			</div>
 		</div>
 		';
-
 	} else {
 		echo "NO se ha modificado un registro" . "<br>";
 		echo mysqli_error($Conexion);
