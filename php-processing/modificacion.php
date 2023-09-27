@@ -6,6 +6,7 @@
 <?php
 
 include '../php-page/form-modificacion.php';
+include 'inserts.php';
 
 $id = $_POST['id'];
 
@@ -15,47 +16,7 @@ $ed = $_POST['edad'];
 $foto = $_FILES["foto"]["tmp_name"];
 $fotoTamanio = $_FILES["foto"]["size"];
 
-$set = "SET ";
-
-if ($nom) {
-	$set .= "nombre = '$nom'";
-}
-
-if ($ed) {
-	if ($nom) {
-		$set .= ", edad = '$ed'";
-	} else {
-		$set .= "edad = '$ed'";
-	}
-}
-
-if ($ape) {
-	if ($nom || $ed) {
-		$set .= ", apellido = '$ape'";
-	} else {
-		$set .= "apellido = '$ape'";
-	}
-}
-
-if ($foto) {
-	$fp = fopen($foto, "rb");
-	$picture = fread($fp, $fotoTamanio);
-	$picture = addslashes($picture);
-	fclose($fp);
-
-	if ($ape || $nom || $ed) {
-		$set .= ", foto = '$picture'";
-	} else {
-		$set .= "foto = '$picture'";
-	}
-}
-
-$base = "gestionsubir";
-$Conexion = mysqli_connect("localhost", "root", "", $base);
-
-$cadena = "UPDATE persona $set WHERE id = '$id'";
-
-if (empty($nom) && empty($ed) && empty($ape) && empty($foto)) {
+if (empty($_POST)) {
 
 	echo '
 	<div class="row g-1 justify-content-center">
@@ -68,23 +29,7 @@ if (empty($nom) && empty($ed) && empty($ape) && empty($foto)) {
 		';
 } else {
 
-	if ($Conexion) {
-		echo "<script>La conexion fue exitosa " . "<br></script>";
-	} else {
-		echo '
-		<div class="row g-1 justify-content-center">
-			<div class="alert alert-danger alert-dismissible fade show col-md-4" role="alert">
-				Hubo un error con la conexión.
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-				</button>
-  			</div>
-		</div>
-		';
-	}
-
-	$resultado = mysqli_query($Conexion, $cadena);
-
-	if ($resultado) {
+	if (modificacionInsert($id, $ape, $nom, $ed, $foto, $fotoTamanio)) {
 		echo '
 		<div class="row g-1 justify-content-center">
 			<div class="alert alert-success alert-dismissible fade show col-md-4" role="alert">
@@ -95,7 +40,15 @@ if (empty($nom) && empty($ed) && empty($ape) && empty($foto)) {
 		</div>
 		';
 	} else {
-		echo "NO se ha modificado un registro" . "<br>";
+		echo '
+		<div class="row g-1 justify-content-center">
+			<div class="alert alert-danger alert-dismissible fade show col-md-4" role="alert">
+				No se modificó el Registro.
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+				</button>
+			  </div>
+		</div>
+		';
 		echo mysqli_error($Conexion);
 	}
 }
