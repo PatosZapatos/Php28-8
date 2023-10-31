@@ -12,8 +12,6 @@ function altasInsert($ape, $nom, $ed, $foto, $fotoTamanio)
             $contenido = addslashes($contenido);
             fclose($fp);
 
-            $duplicatecheck = "SELECT * FROM persona WHERE ";
-
             $cadena = "INSERT INTO persona(apellido, nombre, edad,foto) VALUES ('$ape','$nom','$ed','$contenido')";
 
             $resultado = mysqli_query($Conexion, $cadena);
